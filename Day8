@@ -1,0 +1,59 @@
+It is a universal iterator as we can apply it to any Collection object. By using Iterator, we can perform both read and remove operations.Try this problem using Iterator.
+
+Given an array arr[] of n integrs which are to be put in an ArrayList and an integer k. Iterate the Array List using iterator and remove all the numbers of the ArrayList which are less than k. And then return the sorted ArrayList.
+
+ 
+
+Example 1:
+
+Input: 
+n = 5, k = 8
+arr[] = {1, 6, 9, 2, 11}
+Output:
+[9, 11]
+Explanation:
+The numbers 1, 6 and 2 are less than 8,
+and so they are removed.
+Example 2:
+
+Input: 
+n = 4, k = 13
+arr[] = {1, 4, 6, 9}
+Output:
+[]
+Explanation:
+All the numbers are less than 13,
+and so they are removed.
+ 
+
+Your Task:
+You don't need to read input or print anything. Your task is to complete the function javaIterator() which takes 2 Integers n, k, and an array arr[] of n integers as input and returns a sorted ArrayList after removing all elements less than k.
+
+ 
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
+
+Solution:
+
+class Solution {
+    static ArrayList<Integer> javaIterator(int n, int k, int[] arr) {
+        ArrayList<Integer> it = new ArrayList<>();
+        int j;
+        for(int i=0;i<arr.length;i++)
+        {
+            it.add(arr[i]);
+        }
+        Iterator<Integer> in = it.iterator();
+        while(in.hasNext())
+        {
+             j = in.next();
+            if(j<k)
+            {
+                in.remove();
+            }
+        }
+        Collections.sort(it);
+        return it;
+    }
+}
