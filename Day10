@@ -1,0 +1,45 @@
+Given a string str. Calculate the total number of unique substrings of the given string.
+
+Example 1:
+
+Input:
+abd
+
+Ouput:
+6
+
+Explanation:
+str = abd. The 6 unique substrings 
+are {a, b, d, ab, bd, abd}.
+Example 2:
+
+Input:
+jaja
+
+Ouput:
+7
+
+Explanation:
+str = jaja. The substrings will be j, a, j, a, 
+ja, aj, ja, jaj, aja, jaja. Out of these the 
+unique are j, a, ja, aj, jaj, aja, jaja.
+User Task:
+You need to complete the function unique_substring() that takes str as a parameter and returns the count of unique substrings.
+
+Solution:
+
+class Solution{
+    
+        public static int unique_substring(String str)
+    {
+        HashSet<String> result = new HashSet<>();
+        for(int i=0;i<=str.length();i++)
+        {
+            for(int j=i+1;j<=str.length();j++)
+            {
+                result.add(str.substring(i,j));
+            }
+        }
+        return result.size();
+    }
+}
