@@ -1,0 +1,67 @@
+Java provides an inbuilt object type called Stack. It is a collection that is based on the last in first out (LIFO) principle. Try this problem using Stack. 
+
+Given n elements of a stack st where the first value is the bottom-most value of the stack and the last one is the element at top of the stack, delete the middle element of the stack without using any additional data structure.
+
+ 
+
+Example 1:
+
+Input: n = 5
+st = {1, 2, 3, 4, 5}
+Output: 5 4 2 1
+Explaination: The middle element is 3. If 
+it is deleted and then the values are seen 
+from top, this will be the order.
+ 
+
+Example 2:
+
+Input: n = 6
+st = {1, 4, 9, 2, 6, 5}
+Output: 5 6 2 4 1
+Explaination: The middle element is 9 and if 
+it is deleted this will be the stack traversal. 
+ 
+
+Your Task:
+You do not need to read input or print anything. Your task is to complete the function deleteMid() which takes n and st as input parameters and returns a stack where the middle element is deleted.
+
+ 
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
+
+solution:
+
+class Solution{
+    static Stack<Integer> deleteMid(int n, Stack<Integer> st)
+    {
+        Scanner sc = new Scanner(System.in);
+        Stack<Integer> sr = new Stack<>();
+        if(n%2 == 0)
+        {
+           int mid = (n/2)-1;
+           for(int i=0;i<=n-1;i++)
+           {
+               if(i==mid)
+               {
+                   continue;
+               }
+               sr.push(st.get(i));
+           }
+        }
+        else
+        {
+            int mid1 = (n-1)/2;
+            for(int i=0;i<=n-1;i++)
+            {
+                if(i==mid1)
+                {
+                    continue;
+                }
+                sr.push(st.get(i));
+            }
+        }
+     return sr;
+    }
+}
